@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arzon Market</title>
+
+    <link rel="stylesheet" href="darslik.css">
+</head>
+
+<body>
+
+
+<!-- ================= LOGIN PAGE ================= -->
+
+<section class="login-page" id="loginPage">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <div class="login-box">
+
+        <div class="logo">
+            🛒
+        </div>
+
+        <h1>Arzon Market</h1>
+
+        <p class="welcome">
+            Xush kelibsiz! 👋
+        </p>
+
+
+        <form id="loginForm">
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <span>👤</span>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Login"
+                    autocomplete="username"
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Parol"
+                    autocomplete="current-password"
+                >
+
+                <button
+                    type="button"
+                    class="eye"
+                    onclick="showPassword()"
+                >
+                    👁️
+                </button>
+
+            </div>
+
+
+            <!-- OPTIONS -->
+
+            <div class="options">
+
+                <label>
+                    <input type="checkbox">
+                    Eslab qolish
+                </label>
+
+                <a href="#">
+                    Parolni unutdingizmi?
+                </a>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                Kirish
+            </button>
+
+        </form>
+
+
+        <!-- SEPARATOR -->
+
+        <div class="separator">
+            <span>yoki</span>
+        </div>
+
+
+        <!-- GOOGLE -->
+
+        <button
+            class="google-btn"
+            type="button"
+        >
+            <span>G</span>
+            Google orqali kirish
+        </button>
+
+
+        <!-- REGISTER -->
+
+        <p class="register">
+            Hisobingiz yo‘qmi?
+            <a href="#">
+                Ro‘yxatdan o‘tish
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN PAGE ================= -->
+
+<section
+    class="main-page"
+    id="mainPage"
+>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🛒
+            </div>
+
+            <div>
+
+                <h2>
+                    Arzon Market
+                </h2>
+
+                <small>
+                    Hamyonbop narxlar
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEADER RIGHT -->
+
+        <div class="header-right">
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Mahsulot qidirish..."
+                >
+
+            </div>
+
+
+            <!-- CART -->
+
+            <button
+                class="cart-button"
+                onclick="openCart()"
+            >
+
+                🛒 Savat
+
+                <b id="cartCount">
+                    0
+                </b>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="sale">
+                🔥 BUGUNGI AKSIYA
+            </div>
+
+            <h1>
+                Har kuni
+                <span>arzon</span>
+                narxlar!
+            </h1>
+
+            <p>
+                Sifatli mahsulotlar va katta chegirmalar
+                bir joyda.
+            </p>
+
+        </div>
+
+
+        <div class="hero-icon">
+            🛍️
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <div class="categories">
+
+
+        <button
+            class="category active"
+            onclick="filterProducts('all', this)"
+        >
+            🏪 Barchasi
+        </button>
+
+
+        <button
+            class="category"
+            onclick="filterProducts('food', this)"
+        >
+            🍎 Oziq-ovqat
+        </button>
+
+
+        <button
+            class="category"
+            onclick="filterProducts('drink', this)"
+        >
+            🥤 Ichimliklar
+        </button>
+
+
+        <button
+            class="category"
+            onclick="filterProducts('sweet', this)"
+        >
+            🍫 Shirinliklar
+        </button>
+
+
+        <button
+            class="category"
+            onclick="filterProducts('home', this)"
+        >
+            🧺 Uy-ro‘zg‘or
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main>
+
+
+        <div class="section-title">
+
+            <h2>
+                Mashhur mahsulotlar 🛍️
+            </h2>
+
+            <p>
+                Eng yaxshi mahsulotlarni tanlang
+            </p>
+
+        </div>
+
+
+        <!-- PRODUCTS JS ORQALI CHIQADI -->
+
+        <div
+            class="products"
+            id="products"
+        ></div>
+
+
+    </main>
+
+
+
+    <!-- ================= CART MODAL ================= -->
+
+    <div
+        class="cart-modal"
+        id="cartModal"
+    >
+
+
+        <div class="cart-window">
+
+
+            <!-- CART HEADER -->
+
+            <div class="cart-header">
+
+                <div>
+
+                    <h2>
+                        🛒 Savatingiz
+                    </h2>
+
+                    <small>
+                        Tanlangan mahsulotlar
+                    </small>
+
+                </div>
+
+
+                <button
+                    onclick="closeCart()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <!-- CART ITEMS -->
+
+            <div
+                id="cartItems"
+            ></div>
+
+
+            <!-- CART BOTTOM -->
+
+            <div class="cart-bottom">
+
+                <div>
+
+                    <span>
+                        Jami:
+                    </span>
+
+                    <strong id="totalPrice">
+                        0 so'm
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="checkout-btn"
+                    onclick="checkout()"
+                >
+                    ✅ Buyurtma berish
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= ORDER MODAL ================= -->
+
+    <div
+        class="order-modal"
+        id="orderModal"
+    >
+
+
+        <div class="order-window">
+
+
+            <!-- ORDER HEADER -->
+
+            <div class="order-header">
+
+                <div>
+
+                    <h2>
+                        📦 Buyurtma berish
+                    </h2>
+
+                    <p>
+                        Yetkazib berish ma'lumotlarini kiriting
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="closeOrder()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+
+            <!-- ORDER FORM -->
+
+            <form id="orderForm">
+
+
+                <!-- NAME -->
+
+                <label>
+                    Ismingiz
+                </label>
+
+                <input
+                    type="text"
+                    id="orderName"
+                    placeholder="Ismingizni kiriting"
+                >
+
+
+                <!-- PHONE -->
+
+                <label>
+                    Telefon raqam
+                </label>
+
+                <input
+                    type="tel"
+                    id="orderPhone"
+                    placeholder="+998 90 123 45 67"
+                >
+
+
+                <!-- ADDRESS -->
+
+                <label>
+                    Yetkazib berish manzili
+                </label>
+
+                <textarea
+                    id="orderAddress"
+                    placeholder="Manzilingizni kiriting..."
+                ></textarea>
+
+
+                <!-- PAYMENT -->
+
+                <label>
+                    To‘lov turi
+                </label>
+
+
+                <div class="payment-options">
+
+
+                    <label class="payment-card">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Naqd pul"
+                        >
+
+                        💵 Naqd pul
+
+                    </label>
+
+
+                    <label class="payment-card">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Karta"
+                        >
+
+                        💳 Karta
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- TOTAL -->
+
+                <div class="order-total">
+
+                    <span>
+                        Buyurtma jami:
+                    </span>
+
+                    <strong id="orderTotal">
+                        0 so'm
+                    </strong>
+
+                </div>
+
+
+                <!-- CONFIRM -->
+
+                <button
+                    type="submit"
+                    class="confirm-order"
+                >
+                    ✅ Buyurtmani tasdiqlash
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
